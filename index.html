@@ -6,13 +6,9 @@
     <link rel="import" href="new-element.html">
     <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
     <link rel="import" href="bower_components/google-map/google-map.html">
-    <link rel="import" href="bower_components/iron-ajax/iron-ajax.html">
-    <link rel="import" href="bower_components/iron-image/iron-image.html">
-
-
     <link rel="stylesheet" href="/css/master.css" media="screen" title="no title" charset="utf-8">
-    <link rel="import" href="contact-list.html">
-    <
+    <!-- <link rel="import" href="contact-list.html"> -->
+    <link rel="import" href="ajax-video-feed.html">
   </head>
   <body>
     <!-- <google-map latitude="39.7392" longitude="-104.9903">
@@ -23,47 +19,6 @@
     <!--<new-element></new-element>-->
 
     <!-- <iron-ajax id="ajaxcomponent" auto url="https://www.googleapis.com/youtube/v3/search" params='{"part":"snippet", "q":"polymer", "key": "AIzaSyAuecFZ9xJXbGDkQYWBmYrtzOGJD-iDIgI", "type": "video"}' on-response="handleResponse"></iron-ajax> -->
-
-    <template is="dom-bind" id="app">
-
-    <iron-ajax auto
-            url="https://www.googleapis.com/youtube/v3/search"
-            params='{"part":"snippet", "q":"polymer", "key": "AIzaSyAuecFZ9xJXbGDkQYWBmYrtzOGJD-iDIgI", "type": "video"}'
-            handle-as="json"
-            last-response="{{ajaxResponse}}"></iron-ajax>
-
-            <input type="text" name="name" value="https://www.googleapis.com/youtube/v3/search" />
-
-            <h1>Video Feed</h1>
-            <section class="flex layout horizontal wrap">
-              <template is="dom-repeat" items="[[ajaxResponse.items]]">
-                <div>
-                  <h2><a href="[[url(item.id.videoId)]]" target="_blank">[[item.snippet.title]]</a></h2>
-                  <iron-image src="[[item.snippet.thumbnails.high.url]]" width="256" height="256" sizing="cover" preload fade></iron-image>
-                  <p>[[item.snippet.description]]</p>
-                </div>
-              </template>
-            </section>
-
-</template>
-
-    <script>
-
-    var app = document.querySelector('#app');
-
-   app.url = function (videoId) {
-     return 'https://www.youtube.com/watch?v=' + videoId;
-   };
-
-      //var ajax = document.querySelector('polymer-ajax');
-      // var handleResponse = function(e){
-      //   var response = JSON.parse(this.response);
-      //   console.log(response.feed.entry);
-      // };
-      //ajax.go();
-
-      //this.$.ajaxcomponent.generateRequest();
-    </script>
-
+    <ajax-video-feed></ajax-video-feed>
   </body>
 </html>
