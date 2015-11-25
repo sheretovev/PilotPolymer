@@ -1,0 +1,28 @@
+{
+  "name": "bowertry",
+  "authors": [
+    "sheretovev <sheretovev@gmail.com>"
+  ],
+  "description": "my awesome projecdt",
+  "main": "",
+  "moduleType": [],
+  "keywords": [
+    "node",
+    "polymer"
+  ],
+  "license": "MIT",
+  "homepage": "localhost",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "~1.2.3",
+    "google-map": "GoogleWebComponents/google-map#~1.1.6",
+    "iron-ajax": "polymerelements/iron-ajax#~1.1.1",
+    "iron-image": "polymerelements/iron-image#~1.0.4"
+  }
+}

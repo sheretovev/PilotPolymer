@@ -1,0 +1,53 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="import" href="contact-listing.html">
+<dom-module id="contact-list">
+
+  <style>
+    ul{
+      list-style: none;
+    }
+    li + li {
+      border-top: solid 1px #666;
+    }
+  </style>
+  <template>
+    <ul>
+    <template is="dom-repeat" items="{{contacts}}">
+      <li>
+        <contact-listing name="{{item.name}}" email="{{item.email}}" img="{{item.img}}" last-name="{{item.lastName}}"></contact-listing>
+      </li>
+    </template>
+      <li>
+        <contact-listing name="onemore" email="gugu@mailinator.com" img="https://randomuser.me/api/portraits/thumb/men/23.jpg" last-name="Baklan"></contact-listing>
+      </li>
+    </ul>
+  </template>
+</dom-module>
+
+<script>
+Polymer({
+    is:"contact-list",
+    ready:function(){
+      this.contacts=[
+        {
+          name:"Frank",
+          email: "Frank@malinator.com",
+          img: "https://randomuser.me/api/portraits/thumb/men/3.jpg",
+          lastName: "Gele",
+        },
+        {
+          name:"Tim",
+          email: "tim@malinator.com",
+          img: "https://randomuser.me/api/portraits/thumb/men/5.jpg",
+          lastName: "Groisman",
+        },
+        {
+          name:"Bob",
+          email: "bob@malinator.com",
+          img: "https://randomuser.me/api/portraits/thumb/men/10.jpg",
+          lastName: "Zwaarte",
+        }
+      ];
+    }
+  });
+</script>
