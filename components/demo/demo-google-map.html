@@ -1,0 +1,24 @@
+<link rel="import" href="./../../bower_components/polymer/polymer.html">
+<link rel="import" href="./../../bower_components/google-map/google-map.html">
+<link rel="import" href="./../../bower_components/google-map/google-map-marker.html">
+<dom-module id="demo-google-map">
+
+  <style>
+
+  </style>
+  <template>
+    <google-map latitude="{{latitude}}" longitude="{{longitude}}" fit-to-markers>
+      <google-map-marker latitude="39.7392" longitude="-104.9903" title="Welcome to denver"></google-map-marker>
+    </google-map>
+  </template>
+</dom-module>
+
+<script>
+Polymer({
+    is:"demo-google-map",
+    properties: {
+      latitude: String,
+      longitude: String
+    }
+});
+</script>
