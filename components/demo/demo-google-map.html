@@ -1,13 +1,16 @@
 <link rel="import" href="./../../bower_components/polymer/polymer.html">
 <link rel="import" href="./../../bower_components/google-map/google-map.html">
 <link rel="import" href="./../../bower_components/google-map/google-map-marker.html">
+<link rel="import" href="demo-paper-slider.html">
 <dom-module id="demo-google-map">
-
   <style>
 
   </style>
   <template>
-    <google-map latitude="{{latitude}}" longitude="{{longitude}}" fit-to-markers>
+    <demo-paper-slider id="slider" value="{{zoom}}" max="20" min="1"></demo-paper-slider>
+<!-- on-value-change="changevalue" -->
+    <span>{{zoom}}</span>
+    <google-map  latitude="{{latitude}}" longitude="{{longitude}}" fit-to-markers zoom="{{zoom}}">
       <google-map-marker latitude="39.7392" longitude="-104.9903" title="Welcome to denver"></google-map-marker>
     </google-map>
   </template>
@@ -18,7 +21,28 @@ Polymer({
     is:"demo-google-map",
     properties: {
       latitude: String,
-      longitude: String
-    }
+      longitude: String,
+      zoom: {
+        type:Number,
+        value:3
+      }
+    },
+    // listeners: {
+    //     'tap': 'regularTap',
+    //     'special.tap': 'specialTap'
+    //   },
+
+      // regularTap: function(e) {
+      //   alert("Thank you for tapping");
+      // },
+      //
+      // specialTap: function(e) {
+      //   alert("It was special tapping");
+      // },
+      // changevalue: function(e){
+      //   console.log('value was changed:' + '{{slider.value}}');
+      //   zoom = this.$.slider.value;
+      // }
+
 });
 </script>

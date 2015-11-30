@@ -1,12 +1,13 @@
 <link rel="import" href="./../../bower_components/polymer/polymer.html">
 <link rel="import" href="./../../bower_components/paper-slider/paper-slider.html">
 <dom-module id="demo-paper-slider">
-
   <style>
 
   </style>
   <template>
-    <paper-slider min="10" max="200" value="110"></paper-slider>
+    <paper-slider on-immediate-value-change="_changeValue" id="slider" min="{{min}}" max="{{max}}" value="{{value}}" immediate-value="{{value}}"></paper-slider>
+    <!-- on-immediate-value-change="changedvalue" -->
+    {{value}}
   </template>
 </dom-module>
 
@@ -14,6 +15,31 @@
 Polymer({
     is:"demo-paper-slider",
     properties: {
+      bobo: {
+        type: Number,
+        value: 110
+      },
+      value: {
+        type: Number,
+        value: 110
+      },
+      min: {
+        type: Number,
+        value: 10
+      },
+      max: {
+        type: Number,
+        value: 200
+      },
+      // listeners: {
+      //   'slider.click':'_valueChanged'
+      // },
+    },
+    _changeValue: function(e) {
+      console.log(this.$.slider.immediateValue);
+      console.log(this.value);
+      //alert('hi '+e);
+      this.fire('value-changed');
     }
 });
 </script>
