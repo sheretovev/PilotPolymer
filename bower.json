@@ -28,6 +28,6 @@
     "marked-element": "polymerelements/marked-element#^1.0.0",
     "prism-element": "PolymerElements/prism-element#^1.0.0",
      "paper-styles": "polymerelements/paper-styles#^1.0.0",
-     "paper-slider":"1.0.7"
+     "paper-slider":"polymerelements/paper-slider#^1.0.7"
   }
 }
