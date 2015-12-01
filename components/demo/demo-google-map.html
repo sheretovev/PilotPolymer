@@ -7,10 +7,10 @@
 
   </style>
   <template>
-    <demo-paper-slider id="slider" value="{{zoom}}" max="20" min="1"></demo-paper-slider>
+    <demo-paper-slider on-change="changevalue" id="slider" value="{{zoom::change}}" max="{{maxZoom}}" min="{{minZoom}}"></demo-paper-slider>
 <!-- on-value-change="changevalue" -->
     <span>{{zoom}}</span>
-    <google-map  latitude="{{latitude}}" longitude="{{longitude}}" fit-to-markers zoom="{{zoom}}">
+    <google-map id="map" latitude="{{latitude}}" longitude="{{longitude}}" fit-to-markers zoom="{{zoom}}" maxZoom="{{maxZoom}}" minZoom="{{minZoom}}">
       <google-map-marker latitude="39.7392" longitude="-104.9903" title="Welcome to denver"></google-map-marker>
     </google-map>
   </template>
@@ -25,7 +25,9 @@ Polymer({
       zoom: {
         type:Number,
         value:3
-      }
+      },
+      minZoom:{type:Number,value:1},
+      maxZoom:{type:Number,value:21}
     },
     // listeners: {
     //     'tap': 'regularTap',
@@ -39,10 +41,10 @@ Polymer({
       // specialTap: function(e) {
       //   alert("It was special tapping");
       // },
-      // changevalue: function(e){
-      //   console.log('value was changed:' + '{{slider.value}}');
-      //   zoom = this.$.slider.value;
-      // }
+      changevalue: function(e){
+        console.log('value was changed: zoom:' + this.zoom + ', min: ' + this.minZoom + ', max: ' + this.maxZoom);
+        //zoom = this.$.slider.value;
+      }
 
 });
 </script>
